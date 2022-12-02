@@ -10,7 +10,7 @@ queries on the data.
 The idea behind this task is to simulate a good bartender, who can suggest cocktail ideas to the guests
 in the bar, based on their preferences (what they like/dislike).
 
-First, execute this [link](http://localhost:5601/app/kibana#/dev_tools/console?load_from=https:%2F%2Fraw.githubusercontent.com%2Fdrazen-nikolic%2Fes-workshop%2Fexamples%2Fassignments%2Fcocktails-bulk-create.txt)
+First, execute this [link](http://localhost:5601/app/kibana#/dev_tools/console?load_from=https:%2F%2Fraw.githubusercontent.com%2Fdeavensoft%2Fes-workshop-deavensoft%2Fmaster%2Fassignments%2Fcocktails-bulk-create.txt)
 to index some `cocktail`s into the `_drinks` index. The link should open your localhost Kibana installation
 and `POST /_bulk` command with some data. Execute this command. As a result you should see something like this:
 
@@ -31,7 +31,7 @@ and `POST /_bulk` command with some data. Execute this command. As a result you 
 
 To verify the next index got created and populated with some data, execute next (in Kibana Console):
 
-`GET /drinks/cocktail/_search`
+`GET /drinks/_search`
 
 If everything went fine, you should see 10 hits (results) in the JSON result, like this:
 
@@ -95,7 +95,7 @@ Jane likes to drink *Cosmopolitan*. Tell her do you have this cocktail in your i
 *Hint: To search in an index (or index/type) you can use _search API - Search "lite" query. 
 The query looks like this:*
 
-    GET /drinks/cocktail/_search?q=<query> 
+    GET /drinks/_search?q=<query> 
  
 *... where `<query>` can be something like: `<field_name>:<value(s)>`*
  
@@ -167,8 +167,8 @@ Hear are the details:
 
 *Hint: Use `POST` and specify the values as JSON document. `_id` will be auto-generated.*
 
-**Expected result**: A new cocktail is indexed. Executing "and empty search" `GET /drinks/cocktail/_search`
+**Expected result**: A new cocktail is indexed. Executing "and empty search" `GET /drinks/_search`
 there should be 11 hits in total.
 
 *Note: In order to see all 11 results, you'll need to specify result size, as:   
-`GET /drinks/cocktail/_search?size=11`*
+`GET /drinks/_search?size=11`*
