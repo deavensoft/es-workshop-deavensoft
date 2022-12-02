@@ -30,7 +30,7 @@ Execute next query to create new index with the mapping:
 PUT shop
 {
   "mappings": {
-    "product" : {
+
       "properties" : {
         "name" : {
           "type" :    "text",
@@ -50,7 +50,7 @@ PUT shop
           "type" :   "long"
         }
       }
-    }
+    
   }
 }
 ```
@@ -59,19 +59,19 @@ Execute next `_bulk` query to index some products:
 
 ```javascript
 POST /_bulk
-{ "create": { "_index": "shop", "_type": "product", "_id" : "1" }}
+{ "create": { "_index": "shop",  "_id" : "1" }}
 {"name" : "Air Jordan 13 Retro", "description": "Men's Shoe", "brand":"Nike", "category":"shoes", "inventory_amount":"50"}
-{ "create": { "_index": "shop", "_type": "product", "_id" : "2" }}
+{ "create": { "_index": "shop",  "_id" : "2" }}
 {"name" : "Nike Metcon 4 iD", "description": "Men's Training Shoe", "brand":"Nike", "category":"shoes", "inventory_amount":"5"}
-{ "create": { "_index": "shop", "_type": "product", "_id" : "3" }}
+{ "create": { "_index": "shop",  "_id" : "3" }}
 {"name" : "Reebok crossfit Nano 2.0", "description": "WOMEN TRAINING", "brand":"Reebok", "category":"shoes", "inventory_amount":"150"}
-{ "create": { "_index": "shop", "_type": "product", "_id" : "4" }}
+{ "create": { "_index": "shop",  "_id" : "4" }}
 {"name" : "Doom Sock Primeknit Trainers", "description": "Adidas Original Trainers", "brand":"Adidas", "category":"shoes", "inventory_amount":"15"}
-{ "create": { "_index": "shop", "_type": "product", "_id" : "5" }}
+{ "create": { "_index": "shop",  "_id" : "5" }}
 {"name" : "Stretch denim jegging", "description": "Women classics", "brand":"Reebok", "category":"apparel", "inventory_amount":"3"}
 ```
 
-Validate that the indexing passed OK by executing `GET shop/product/_search`.
+Validate that the indexing passed OK by executing `GET shop/_search`.
 You should get 5 hits.
 
 #### Assignment 5-1
