@@ -19,20 +19,18 @@ First create new index and define mapping, by executing this query:
 PUT tweets
 {
   "mappings": {
-    "entries" : {
-      "properties" : {
-        "tweet_text" : {
-          "type" :    "text",
-          "analyzer": "english"
-        },
-        "tweet_date" : {
-          "type" :   "date"
-        },
-        "author" : {
-          "type" :   "keyword"
-        }
-      }
-    }
+	  "properties" : {
+		"tweet_text" : {
+		  "type" :    "text",
+		  "analyzer": "english"
+		},
+		"tweet_date" : {
+		  "type" :   "date"
+		},
+		"author" : {
+		  "type" :   "keyword"
+		}
+	  }
   }
 }
 ```
@@ -40,21 +38,21 @@ PUT tweets
 Then index some data by executing this bulk query:
 ```javascript
 POST /_bulk
-{ "create": { "_index": "tweets", "_type": "entries", "_id" : "8" }}
+{ "create": { "_index": "tweets",  "_id" : "8" }}
 {"author" : "@venkat_s", "tweet_text": "The best way to make sure no one ever hates what you do, or how you do, is to never exist. Well, that's too late now... so do the best you can for those who truly will benefit from your sincere efforts, and ignore the rest.", "tweet_date":"2017-12-24"}
-{ "create": { "_index": "tweets", "_type": "entries", "_id" : "7" }}
+{ "create": { "_index": "tweets",  "_id" : "7" }}
 {"author" : "@venkat_s", "tweet_text": "Laziness is the Ultimate Sophistication, both in Life and in Programming", "tweet_date":"2017-12-19"}
-{ "create": { "_index": "tweets", "_type": "entries", "_id" : "6" }}
+{ "create": { "_index": "tweets",  "_id" : "6" }}
 {"author" : "@JohnCleese", "tweet_text": "Definition of an English gentleman : Someone who is never rude by accident", "tweet_date":"2017-12-10"}
-{ "create": { "_index": "tweets", "_type": "entries", "_id" : "5" }}
+{ "create": { "_index": "tweets",  "_id" : "5" }}
 {"author" : "@arandjel99", "tweet_text": "Dear Martha, I’we been developing things in Java since version 1.1, now my younger son is writing Arduino code in C and older one solves problems in C++. Have I failed as a parent? What is next? My wife asking me to install .NET environment?", "tweet_date":"2017-12-03"}
-{ "create": { "_index": "tweets", "_type": "entries", "_id" : "4" }}
+{ "create": { "_index": "tweets",  "_id" : "4" }}
 {"author" : "@inspire_us", "tweet_text": "Don't sit back and let things happen to you. Go out and happen to things.", "tweet_date":"2016-06-27"}
-{ "create": { "_index": "tweets", "_type": "entries", "_id" : "3" }}
+{ "create": { "_index": "tweets",  "_id" : "3" }}
 {"author" : "@inspire_us", "tweet_text": "Remind yourself that you don't have to do what everyone else is doing.", "tweet_date":"2016-03-27"}
-{ "create": { "_index": "tweets", "_type": "entries", "_id" : "2" }}
+{ "create": { "_index": "tweets",  "_id" : "2" }}
 {"author" : "@speakjava", "tweet_text": "#JDK11 will remove the Java garbage collector! http://openjdk.java.net/jeps/318 . Well, not quite, but the Epsilon collector will allow you to stop all GC if you're really, really sure you don't need it.", "tweet_date":"2017-12-01"}
-{ "create": { "_index": "tweets", "_type": "entries", "_id" : "1" }}
+{ "create": { "_index": "tweets",  "_id" : "1" }}
 {"author" : "@darilginn", "tweet_text": "Dear every website, No we do not want to enable push notifications. Ever. Sincerely, Everyone", "tweet_date":"2017-12-16"}
 ```
 

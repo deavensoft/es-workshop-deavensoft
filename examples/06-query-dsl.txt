@@ -6,7 +6,7 @@ PUT /my_index
 { "settings": { "number_of_shards": 1 }}
 
 # Index some example docs
-POST /my_index/my_type/_bulk
+POST /my_index/_bulk
 { "index": { "_id": 1 }}
 { "title": "The quick brown fox" }
 { "index": { "_id": 2 }}
@@ -17,7 +17,7 @@ POST /my_index/my_type/_bulk
 { "title": "Brown fox brown dog" }
 
 # Single word match query
-GET /my_index/my_type/_search
+GET /my_index/_search
 {
   "query": {
     "match": {
@@ -27,7 +27,7 @@ GET /my_index/my_type/_search
 }
 
 # Multi-word match query
-GET /my_index/my_type/_search
+GET /my_index/_search
 {
   "query": {
     "match": {
@@ -37,7 +37,7 @@ GET /my_index/my_type/_search
 }
 
 # Operator `and`
-GET /my_index/my_type/_search
+GET /my_index/_search
 {
   "query": {
     "match": {
@@ -50,7 +50,7 @@ GET /my_index/my_type/_search
 }
 
 # Minimum should match
-GET /my_index/my_type/_search
+GET /my_index/_search
 {
   "query": {
     "match": {
@@ -71,7 +71,7 @@ PUT /my_index
 { "settings": { "number_of_shards": 1 }}
 
 # Index some example docs
-POST /my_index/my_type/_bulk
+POST /my_index/_bulk
 { "index": { "_id": 1 }}
 { "title": "The quick brown fox" }
 { "index": { "_id": 2 }}
@@ -82,7 +82,7 @@ POST /my_index/my_type/_bulk
 { "title": "Brown fox brown dog" }
 
 # match_phrase query
-GET /my_index/my_type/_search
+GET /my_index/_search
 {
   "query": {
     "match_phrase": {
@@ -92,12 +92,12 @@ GET /my_index/my_type/_search
 }
 
 # match query, type phrase
-GET /my_index/my_type/_search
+GET /my_index/_search
 {
   "query": {
-    "match": {
+    "match_phrase": {
       "title": {
-        "type": "phrase",
+        
         "query": "quick brown fox"
       }
     }
@@ -114,7 +114,7 @@ PUT /my_index
 { "settings": { "number_of_shards": 1 }}
 
 # Index some example docs
-POST /my_index/my_type/_bulk
+POST /my_index/_bulk
 { "index": { "_id": 1 }}
 { "title": "The quick brown fox" }
 { "index": { "_id": 2 }}
@@ -126,7 +126,7 @@ POST /my_index/my_type/_bulk
 
 
 # Phrase query - doesn't match
-GET /my_index/my_type/_search
+GET /my_index/_search
 {
   "query": {
     "match_phrase": {
@@ -139,7 +139,7 @@ GET /my_index/my_type/_search
 
 
 # Proximity query with slop - matches
-GET /my_index/my_type/_search
+GET /my_index/_search
 {
   "query": {
     "match_phrase": {
@@ -156,7 +156,7 @@ GET /my_index/my_type/_search
 DELETE /test
 
 # Insert example doc
-PUT /test/tweet/1
+PUT /test/_doc/1
 {
   "date": "2014-09-22",
   "name": "John Smith",
@@ -166,7 +166,7 @@ PUT /test/tweet/1
 
 # Use the explain API to figure out why
 # this document doesn't match
-GET /test/tweet/1/_explain
+GET /test/_explain/1
 {
    "query" : {
       "bool" : {
@@ -176,7 +176,7 @@ GET /test/tweet/1/_explain
    }
 }
 
-GET /test/tweet/1/_explain
+GET /test/_explain/1
 {
    "query" : {
       "bool" : {
