@@ -25,7 +25,7 @@ to match the document by any word in the field)
 * `tags` - individual tags should be searched by phrase
 
 The blog articles are stored in a relation database. You have to create an index
-named `blog` (use index type `articles`) with the index fields as defined above. Datatypes 
+named `blog` with the index fields as defined above. Datatypes 
 used should best correspond to the "nature" of the each property data.
 
 
@@ -94,7 +94,7 @@ If your index mapping query was correct, you should get this response:
 ```
 
 Once you create the index with the appropriate fields mapping:
-1. execute `GET blog/articles/_mapping` - expected is to see the index mapping
+1. execute `GET blog/_mapping` - expected is to see the index mapping
 as you've just created
 
 
@@ -103,7 +103,7 @@ as you've just created
 Index some data and validate it is correctly indexed:
 1. index blog articles by executing this pre-prepared query:
     ```javascript
-    POST blog/articles/_bulk?refresh
+    POST blog/_bulk?refresh
     {"index":{"_id":1}}
     {"title": "Java 8 - New Date Time API", "article_text": "Date and Time API for Java, also known as JSR-310, provides a new and improved date and time API for Java", "author_email": "duke@java.com", "publish_date": "2017-10-15", "tags": "java", "article_id": 101}
     {"index":{"_id":2}}
@@ -116,14 +116,14 @@ Index some data and validate it is correctly indexed:
     {"title": "Refactoring to Functional", "article_text": "Moving to functional programming can result in significantly better code and productivity gains. However, it requires a paradigm shift: you need to move away from imperative and object-oriented thinking to start thinking functionally.", "author_email": "duke@java.com", "publish_date": "2017-12-25", "tags": "java", "article_id": 105}
     ```
     It is expected that indexing passes and in the response you see `"errors": false`
-1. Execute `GET blog/articles/_search` - you should see there are *5 results*
-1. Execute `GET blog/articles/_search?q=tags:java` - you should get *4 results*, 
-1. Execute `GET blog/articles/_search?q=tags:spring-data` - you should get *1 result*, 
+1. Execute `GET blog/_search` - you should see there are *5 results*
+1. Execute `GET blog/_search?q=tags:java` - you should get *4 results*, 
+1. Execute `GET blog/_search?q=tags:spring-data` - you should get *1 result*, 
 an article with the title "Elasticsearch with Spring Data"
-1. Execute `GET blog/articles/_search?q=author_email:duke@java.com` - you should get *2 results*
-1. Execute `GET blog/articles/_search?q=author_email:duke` - you should get *0 results*
-1. Execute `GET blog/articles/_search?q=publish_date:>2017-12-01` -  you should get *2 results*,
+1. Execute `GET blog/_search?q=author_email:duke@java.com` - you should get *2 results*
+1. Execute `GET blog/_search?q=author_email:duke` - you should get *0 results*
+1. Execute `GET blog/_search?q=publish_date:>2017-12-01` -  you should get *2 results*,
 with articles which publish date is in December 2017
-1. Execute `GET blog/articles/_search?q=title:refactor` - you should get *1 result*
-1. Execute `GET blog/articles/_search?q=article_text:(%2Bsolution+%2Belasticsearch)` - you should get *1 result*
+1. Execute `GET blog/_search?q=title:refactor` - you should get *1 result*
+1. Execute `GET blog/_search?q=article_text:(%2Bsolution+%2Belasticsearch)` - you should get *1 result*
 
