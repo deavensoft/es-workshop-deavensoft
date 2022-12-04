@@ -22,7 +22,6 @@ and `POST /_bulk` command with some data. Execute this command. As a result you 
     {
       "create": {
         "_index": "drinks",
-        "_type": "cocktail",
         "_id": "1",
         "_version": 1,
         "result": "created",
@@ -46,12 +45,14 @@ If everything went fine, you should see 10 hits (results) in the JSON result, li
     "failed": 0
   },
   "hits": {
-    "total": 10,
+    "total": {
+      "value": 10, 
+      "relation": "eq"
+    },
     "max_score": 1,
     "hits": [
       {
         "_index": "drinks",
-        "_type": "cocktail",
         "_id": "5",
         "_score": 1,
         "_source": {
