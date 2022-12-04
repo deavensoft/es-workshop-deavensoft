@@ -1,27 +1,27 @@
 # Assignments Solutions
 
 ## Assignment 2
-### 2-1
-`/drinks/cocktail/_search?q=name:Cosmopolitan`
+```
+#  2-1
+GET /drinks/_search?q=name:Cosmopolitan
 
-### 2-2
-`GET /drinks/cocktail/_search?q=ingredients:tequila`
+#  2-2
+GET /drinks/_search?q=ingredients:tequila
 
-### 2-3
-`GET /drinks/cocktail/_search?q=ingredients:(orange cranberry)`
+#  2-3
+GET /drinks/_search?q=ingredients:(orange cranberry)
 
-### 2-4
-`GET /drinks/cocktail/_search?q=ingredients:(+vodka -cranberry)`
+#  2-4
+GET /drinks/_search?q=ingredients:(+vodka -cranberry)
 
-### 2-5
-`GET /drinks/cocktail/_search?q=ingredients:(+vodka -cranberry lemonade)`
+#  2-5
+GET /drinks/_search?q=ingredients:(+vodka -cranberry lemonade)
 
-### 2-6
-`GET /drinks/cocktail/_search?q=%2Bingredients:whiskey %2Bgarnish:cherry`
+#  2-6
+GET /drinks/_search?q=%2Bingredients:whiskey %2Bgarnish:cherry
 
-### 2-7
-```json
-POST /drinks/cocktail/
+#  2-7
+POST /drinks/_doc
 {
   "name": "Gree Beast",
   "ingredients": "absinthe, lime juice, syrup, water",
@@ -33,9 +33,8 @@ POST /drinks/cocktail/
 
 ## Assignment 3
 
-### 3-1
-
-```json
+```
+#  3-1
 DELETE blog
 
 PUT blog
@@ -56,10 +55,9 @@ PUT blog
     }
   }
 }
-```
 
-### 3-2
-```json
+
+#  3-2
 PUT blog/_mapping
 {
   "properties" : {
@@ -87,12 +85,12 @@ PUT blog/_mapping
   }
 }
 
-GET blog/articles/_mapping
+GET blog/_mapping
 ```
 
 ## Assignment 4
-### 4-1
-```json
+```
+#  4-1
 GET tweets/_search
 {
   "query": {
@@ -101,22 +99,20 @@ GET tweets/_search
     }
   }
 }
-```
 
-### 4-2
-```json
+
+#  4-2
 GET tweets/_search
 {
   "query": {
     "match": {
-      "tweet_text": "java"
+      "tweet_text": "java website"
     }
   }
 }
-```
 
-### 4-3
-```json
+
+#  4-3
 GET tweets/_search
 {
   "query": {
@@ -126,10 +122,9 @@ GET tweets/_search
     }
   }
 }
-```
 
-### 4-4
-```json
+
+#  4-4
 GET tweets/_search
 {
   "query": {
@@ -141,10 +136,9 @@ GET tweets/_search
     }
   }
 }
-```
 
-### 4-5
-```json
+
+#  4-5
 GET tweets/_search
 {
   "query": {
@@ -152,10 +146,9 @@ GET tweets/_search
   },
   "size": 2
 }
-```
 
-### 4-6
-```json
+
+#  4-6
 GET tweets/_search
 {
   "query": {
@@ -174,8 +167,8 @@ GET tweets/_search
 
 ## Assignment 5
 
+```
 # 5-1
-```json
 GET shop/_search
 {
   "query": {
@@ -198,10 +191,9 @@ GET shop/_search
     }
   }
 }
-```
 
-### 5-2
-```json
+
+#  5-2
 GET shop/_search
 {
   "query": {
@@ -224,8 +216,8 @@ GET shop/_search
 
 # Assignment 6
 
-### 6-1
-```json
+```
+#  6-1
 GET future-bank/_search?size=0
 {
     "aggs" : {
@@ -242,10 +234,9 @@ GET future-bank/_search?size=0
         }
     }
 }
-```
 
-### 6-2
-```json
+
+#  6-2
 GET future-bank/_search
 {
    "size" : 0,

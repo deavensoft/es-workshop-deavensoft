@@ -2,7 +2,7 @@
 DELETE /website
 
 # Create a document with ID 123
-PUT /website/blog/123
+PUT /website/_doc/123
 {
   "title": "My first blog entry",
   "text":  "Just trying this out...",
@@ -10,18 +10,18 @@ PUT /website/blog/123
 }
 
 # Retrieve document with ID 123
-GET /website/blog/123
+GET /website/_doc/123
 
 # Retrieve non-existent document
-GET /website/blog/124
+GET /website/_doc/124
 
 # Check does document exists
-HEAD /website/blog/123
+HEAD /website/_doc/123
 
-HEAD /website/blog/124
+HEAD /website/_doc/124
 
 # Retrieve part of a document
-GET /website/blog/123?_source=title,text
+GET /website/_doc/123?_source=title,text
 
 # Retrieve just the _source field
-GET /website/blog/123/_source
+GET /website/_source/123

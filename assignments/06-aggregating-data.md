@@ -17,7 +17,7 @@ likely to need to get a loan.
 Here is some data to work with. Please, execute the _bulk query to index the data.
 
 ```javascript
-POST future-bank/accounts/_bulk
+POST future-bank/_bulk
 { "index": {}}
 { "name" : "John", "age" : 21, "balance" : 150 }
 { "index": {}}

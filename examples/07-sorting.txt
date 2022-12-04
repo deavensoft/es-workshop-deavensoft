@@ -2,7 +2,7 @@
 DELETE /test
 
 # Insert some example docs
-PUT /test/tweet/1
+PUT /test/_doc/1
 {
    "date" : "2014-09-13",
    "name" : "Mary Jones",
@@ -10,7 +10,7 @@ PUT /test/tweet/1
    "user_id" : 2
 }
 
-PUT /test/tweet/2
+PUT /test/_doc/2
 {
    "date" : "2014-09-14",
    "name" : "John Smith",
@@ -18,7 +18,7 @@ PUT /test/tweet/2
    "user_id" : 1
 }
 
-PUT /test/tweet/3
+PUT /test/_doc/3
 {
    "date" : "2014-09-15",
    "name" : "Mary Jones",
@@ -26,7 +26,7 @@ PUT /test/tweet/3
    "user_id" : 2
 }
 
-PUT /test/tweet/4
+PUT /test/_doc/4
 {
    "date" : "2014-09-16",
    "name" : "John Smith",
@@ -59,7 +59,7 @@ GET /test/_search
 DELETE /test
 
 # Insert some example docs
-PUT /test/tweet/1
+PUT /test/_doc/1
 {
    "date" : "2014-09-14",
    "name" : "Mary Jones",
@@ -67,7 +67,7 @@ PUT /test/tweet/1
    "user_id" : 2
 }
 
-PUT /test/tweet/2
+PUT /test/_doc/2
 {
    "date" : "2014-09-14",
    "name" : "John Smith",
@@ -75,7 +75,7 @@ PUT /test/tweet/2
    "user_id" : 1
 }
 
-PUT /test/tweet/3
+PUT /test/_doc/3
 {
    "date" : "2014-09-15",
    "name" : "Mary Jones",
@@ -83,7 +83,7 @@ PUT /test/tweet/3
    "user_id" : 2
 }
 
-PUT /test/tweet/4
+PUT /test/_doc/4
 {
    "date" : "2014-09-16",
    "name" : "John Smith",
@@ -129,7 +129,7 @@ PUT /my_index
 { "settings": { "number_of_shards": 1 }}
 
 # Index some example docs
-POST /my_index/my_type/_bulk
+POST /my_index/_bulk
 {"index":{"_id":1}}
 {"content":"Full text search is great"}
 {"index":{"_id":2}}
@@ -141,7 +141,7 @@ POST /my_index/my_type/_bulk
 
 
 # "Lucene" and "Elasticsearch" have the same boost
-GET /_search
+GET /my_index/_search
 {
   "query": {
     "bool": {
@@ -170,7 +170,7 @@ GET /_search
 }
 
 # "Elasticsearch" has a higher boost than "Lucene"
-GET /_search
+GET /my_index/_search
 {
   "query": {
     "bool": {

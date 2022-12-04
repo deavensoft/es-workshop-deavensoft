@@ -69,7 +69,7 @@ from the official documentation.*
 
 *Hint 4: For mapping creation use*: 
 ```javascript
-PUT blog/_mapping/articles
+PUT blog/_mapping
 {
   "properties" : {
     "field_name" : {
@@ -114,7 +114,8 @@ Index some data and validate it is correctly indexed:
     {"title": "What is Kanban?", "article_text": "The Kanban method does not prescribe a certain setup or procedure. You can overlay Kanban properties on top of your existing workflow or process to bring your issues to light so that you can introduce positive change over time.", "author_email": "agile@example.com", "publish_date": "2017-12-19", "tags": "agile,kanban", "article_id": 104}
     {"index":{"_id":5}}
     {"title": "Refactoring to Functional", "article_text": "Moving to functional programming can result in significantly better code and productivity gains. However, it requires a paradigm shift: you need to move away from imperative and object-oriented thinking to start thinking functionally.", "author_email": "duke@java.com", "publish_date": "2017-12-25", "tags": "java", "article_id": 105}
-    ```
+    
+   ```
     It is expected that indexing passes and in the response you see `"errors": false`
 1. Execute `GET blog/_search` - you should see there are *5 results*
 1. Execute `GET blog/_search?q=tags:java` - you should get *4 results*, 
@@ -125,5 +126,5 @@ an article with the title "Elasticsearch with Spring Data"
 1. Execute `GET blog/_search?q=publish_date:>2017-12-01` -  you should get *2 results*,
 with articles which publish date is in December 2017
 1. Execute `GET blog/_search?q=title:refactor` - you should get *1 result*
-1. Execute `GET blog/_search?q=article_text:(%2Bsolution+%2Belasticsearch)` - you should get *1 result*
+1. Execute `GET blog/_search?q=article_text:(%2Bsolution %2Belasticsearch)` - you should get *1 result*
 

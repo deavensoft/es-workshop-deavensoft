@@ -1,5 +1,5 @@
 # View the mapping
-GET /gb/_mapping/tweet
+GET /gb/_mapping
 
 
 # ----------------------------------
@@ -13,7 +13,6 @@ DELETE /gb
 PUT /gb
 {
   "mappings": {
-    "tweet" : {
       "properties" : {
         "tweet" : {
           "type" :    "text",
@@ -29,12 +28,11 @@ PUT /gb
           "type" :   "long"
         }
       }
-    }
   }
 }
 
 # Update mappings on an existing index
-PUT /gb/_mapping/tweet
+PUT /gb/_mapping
 {
   "properties" : {
     "tag" : {
@@ -44,7 +42,7 @@ PUT /gb/_mapping/tweet
 }
 
 # Check new mapping
-GET /gb/_mapping/tweet
+GET /gb/_mapping
 
 # Test the analyzer for the `tweet` field
 GET /gb/_analyze
@@ -71,7 +69,6 @@ DELETE my_index
 PUT my_index
 {
   "mappings": {
-    "my_type": {
       "properties": {
         "city": {
           "type": "text",
@@ -82,16 +79,15 @@ PUT my_index
           }
         }
       }
-    }
   }
 }
 
-PUT my_index/my_type/1
+PUT my_index/_doc/1
 {
   "city": "New York"
 }
 
-PUT my_index/my_type/2
+PUT my_index/_doc/2
 {
   "city": "York"
 }
@@ -126,7 +122,6 @@ DELETE my_index
 PUT my_index
 {
   "mappings": {
-    "my_type": {
       "properties": {
         "text": { 
           "type": "text",
@@ -138,15 +133,14 @@ PUT my_index
           }
         }
       }
-    }
   }
 }
 
 # Index two documents, one with fox and the other with foxes
-PUT my_index/my_type/1
+PUT my_index/_doc/1
 { "text": "quick brown fox" } 
 
-PUT my_index/my_type/2
+PUT my_index/_doc/2
 { "text": "quick brown foxes" } 
 
 

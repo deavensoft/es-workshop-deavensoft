@@ -1,2 +1,2 @@
-# es-workshop
+# Elasticsearch Workshop
 
